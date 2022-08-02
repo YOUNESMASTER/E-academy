@@ -1,0 +1,165 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mon_espace</title>
+    <link rel="stylesheet" href="style2.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Fredoka+One&family=Mochiy+Pop+One&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.2/css/all.min.css" integrity="sha512-1sCRPdkRXhBV2PBLUdRb4tMg1w2YPf37qatUFeS7zlBy7jJI8Lf4VHwWfZZfpXtYSLy85pkm9GaYVYMfw5BC1A==" crossorigin="anonymous"/>
+</head>
+
+<body>
+<section id="header">
+        
+        <a href="index.html" id="logo">E_<span>A</span>cademy</a>
+         <div class="nav1">
+             <i class="fa-solid fa-house activeicon" ></i>
+             <i class="fa-solid fa-user-group passiveicon"></i>
+             <i class="fa-solid fa-cart-shopping passiveicon"></i>
+
+         </div>
+         <div class="nav">
+            <a href="#" class="link"><i class="fa-solid fa-heart"></i></a>
+            <a class="link" href=""><i class="fa-solid fa-message"></i></a>
+            <a class="link" href="#"><i class="fa-solid fa-bell"></i></a>
+            <a href="#" id="profil_a"><img id="profil" src="images/profil.jpg" alt="">
+               <div class="dropdown">
+                    <a href="#">changer le Profil</a>
+                    <input id="myfile" type="file" name="photo_profil">
+               </div>
+            </a>
+            
+         </div>
+</section>
+<section id="sect1">
+   <h1>Mon Apprentissage</h1>
+   <div class="links">
+    <!-- nom div +active = myclass -->
+      <a href="#" class="linksactive">Tous les cours</a>   
+      <a href="#" class="linkspassive">Mes Listes</a>
+      <a href="#" class="linkspassive">Mon Archive</a>
+      <a href="#" class="linkspassive" id="favoris">Favoris</a>
+      <a href="#" class="linkspassive" id="outils">Outils d'apprentissage</a>
+      <a href="#" class="linkspassive" id="plus"><i class="fa-solid fa-plus"></i></a>
+   </div>
+</section>
+<section id="sect2">
+    <i class="fa-solid fa-caret-right" id="next"></i>
+    <i class="fa-solid fa-caret-left" id="previous"></i>
+    <div class="videos-cont">
+        <div class="video v1">
+            <img src="images/card1.jfif" id="picvideo" alt="" class="picture">
+            <div class="details">
+                <h5>Apprendre MYSQL</h5>
+                <a href="#">Formateur: <span>Younes_KH</span></a>
+                <div class="pourcentage p70"></div>
+                <h6>70% terminé</h6>
+                <input type="submit" value="Voir le Cour" class="btn">
+            </div>
+        </div>
+        <div class="video v2">
+            <img src="images/card4.png" alt="" class="picture">
+            <div class="details">
+                <h5>Apprendre C</h5>
+                <a href="#">Formateur: <span>Younes_KH</span></a>
+                <div class="pourcentage p50"></div>
+                <h6>50% terminé</h6>
+                <input type="submit" value="Voir le Cour" class="btn">
+            </div>
+        </div>
+        <div class="video v3">
+            <img src="images/card2.png" alt="" class="picture">
+            <div class="details">
+                <h5>Apprendre PHP</h5>
+                <a href="#">Formateur: <span>Younes_KH</span></a>
+                <div class="pourcentage p50"></div>
+                <h6>50% terminé</h6>
+                <input type="submit" value="Voir le Cour" class="btn">
+            </div>
+        </div>
+        <div class="video v4">
+            <img src="images/card3.jfif" alt="" class="picture">
+            <div class="details">
+                <h5>Apprendre JS</h5>
+                <a href="#">Formateur: <span>Younes_KH</span></a>
+                <div class="pourcentage p90"></div>
+                <h6>90% terminé</h6>
+                <input type="submit" value="Voir le Cour" class="btn">
+            </div>
+        </div>
+    </div>
+</section>
+<section id="sect3">
+    <div class="h-container">
+        <h2>Ayez un impact global</h2>
+        <h6>Créez un cours vidéo en ligne, inspirez les participants du monde entier et gagnez de l'argent</h6>
+    </div>
+    <button id="enseigner" class="passive_ens">Enseigner sur Udemy</button>
+   
+</section>
+</body>
+<script>
+    //hover icon by js start
+    let myicons=document.querySelectorAll(".nav1 i");
+    for(const ico of myicons){
+        if(ico.classList.contains("passiveicon")){
+            ico.addEventListener("mouseover",()=>{
+            ico.classList.add("activeicon");
+            
+      })
+          ico.addEventListener("mouseout",()=>{
+          ico.classList.remove("activeicon");
+      })
+        }
+    
+    }
+    //end hover icon
+    //afficher dropdown  changer profil start
+      let click=0;
+    let myprofil=document.getElementById("profil_a");
+    myprofil.addEventListener('click',()=>{
+        if(click%2==0){
+            document.querySelector(".dropdown").style.display="flex";
+            document.getElementById("sect1").style.zIndex="-1";
+            click++;
+        }
+        else{
+            document.getElementById("sect1").style.zIndex="9999";
+            document.querySelector(".dropdown").style.display="none";
+            click++;
+        }
+      
+    })
+     //afficher dropdown  changer profil end
+    //  slider video start
+     const sources=["images/card1.jfif","images/card4.png","images/card2.png","images/card3.jfif"];
+     let mavideo=document.getElementById("picvideo");
+     let next=document.getElementById("next");
+     let previous=document.getElementById("previous");
+     let slider_click=0;
+     let counter=0;
+     next.addEventListener('click',()=>{
+            slider_click++;
+            counter++;
+            if(counter==4){
+                counter=0
+            }
+           
+            mavideo.src=sources[counter];
+     })
+    // il faut que next et prev soit dependdant!!
+     previous.addEventListener('click',()=>{
+        counter--;
+         if(counter==-1){
+            counter=3;
+            mavideo.src=sources[counter];
+         }
+        mavideo.src=sources[counter];
+     })
+   
+</script>
+</html>
